@@ -1,22 +1,20 @@
-import { pages } from "../controllers/index";
+import {pages} from '../controllers/index'
+
+let content = document.getElementById('root');
 
 const router = async (route) => {
-  let content = document.getElementById("root");
-  content.innerHTML = "";
 
-  console.log(route);
+    content.innerHTML = '';
 
-  switch (route) {
-    case "#/": {
-      return content.appendChild(pages.home());
+    switch (route) {
+        case '#/': {
+            return content.appendChild(pages.home());
+        }
+        case '#/posts':
+            return content.appendChild(await pages.posts());
+        case '#/products':
+            return content.appendChild(await pages.products());
     }
-    case "#/posts": {
-      return content.appendChild(await pages.posts());
-    }
-    default: {
-      return content.appendChild(pages.notFound());
-    }
-  }
 };
 
-export { router };
+export { router }
